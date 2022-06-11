@@ -30,7 +30,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>testTitle</title>
+    <title>6.2.1传值参数</title>
     <url>/2022/06/10/6.2.1%E4%BC%A0%E5%80%BC%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<p><strong>指针形参</strong></p>
 <p>指针的行为和其他非引用类型一样，当执行指针拷贝操作时拷贝的是指针的值<br>两个指针是不同的指针 但是所指向的内存区域是相同的,因此可通过修改形参所指的值<br>来对实参进行更改</p>
@@ -58,7 +58,7 @@
       </tags>
   </entry>
   <entry>
-    <title>testTitle</title>
+    <title>6.4函数重载</title>
     <url>/2022/06/10/6.4%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/</url>
     <content><![CDATA[<p><strong>const_cast和重载</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string&amp; <span class="title">shorterString</span><span class="params">(string&amp; s1, string&amp; s2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//下条语句将s1和s2显示转换为常量引用         </span></span><br><span class="line">	<span class="keyword">auto</span>&amp; r = </span><br><span class="line">    <span class="built_in">shorterString</span>(<span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s1), <span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s2));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;string&amp;&gt;(r);<span class="comment">//将结果r转为非常量引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -72,7 +72,7 @@
       </tags>
   </entry>
   <entry>
-    <title>testTitle</title>
+    <title>6.5.1默认实参</title>
     <url>/2022/06/10/6.5.1%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82/</url>
     <content><![CDATA[<p><strong>默认实参</strong></p>
 <p>  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用<br>  若想使用默认实参，只要在调用函数的时候省略该实参即可</p>
@@ -95,7 +95,7 @@
       </tags>
   </entry>
   <entry>
-    <title>testTitle</title>
+    <title>6.7 函数指针</title>
     <url>/2022/06/10/6.7%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>含义:指向函数的指针</p>
 <p>例:</p>
@@ -124,7 +124,7 @@
       </tags>
   </entry>
   <entry>
-    <title>testTitle</title>
+    <title>指针和const</title>
     <url>/2022/06/10/%E6%8C%87%E9%92%88%E5%92%8Cconst/</url>
     <content><![CDATA[<p>指向常量的指针(常量指针)<br>代表 <strong>不能改变其指向内容</strong>的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是 <strong>底层const</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p_a = &amp;num_a; <span class="comment">//底层const</span></span><br><span class="line"><span class="comment">//*p_a = 2;  //错误，指向“常量”的指针不能改变所指的对象</span></span><br></pre></td></tr></table></figure>
@@ -139,6 +139,57 @@
       </categories>
       <tags>
         <tag>C++ primer第二章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>4.11.3 显式转换</title>
+    <url>/2022/06/10/4.11.3%20%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<p><strong>命名的强制类型转换</strong></p>
+<p>形式： cast-name<type>(expression)<br>type: 要转换的类型 （若type是引用类型 则返回值为左值）<br>expression: 要转换的值<br> cast-name: static_cast、 dynamic_cast、const_cast 和reinterpret_cast其中一种</p>
+<p>dynamic_cast:支持执行时类型识别(&lt;待补充&gt;)</p>
+<p>static_cast:<br>任何具有明确定义的类型转换，只要不包含底层const,都可以使用<br>例:<br>    &#x2F;&#x2F;进行强制类型转换以便执行浮点数除法<br>   double slope&#x3D;static_cast<double>(j)&#x2F;i;<br>   static_cast经常用于将一个较大的算术类型赋值给较小的类型，<br>   使用时编译器不会再发出由大的算术类型转为较小的算术类型所造成的精度损失警告</p>
+<pre><code>static_cast对于编译器无法自动执行的类型转换也非常有用
+
+ void *p=&amp;d; //注:此处d的类型应为double
+ double *dp=static_cast&lt;double*&gt; (p);
+</code></pre>
+<p>const_cast：</p>
+<p>只能改变运算对象的底层const<br>例:<br>     const char *pc;<br>     char *p&#x3D;const_cast&lt;char*&gt;(pc);</p>
+<pre><code>const int n = 12;
+const int* p = &amp;n;
+int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_cast转换成*k 底层const发生改变
+*k = 12;//正确
+</code></pre>
+<p>reinterpret_cast</p>
+<p>int *ip;<br>char *pc&#x3D;reinterpret_cast&lt;char*&gt;(ip);</p>
+<p> int n &#x3D; 98;<br> int* ip&#x3D;&amp;n;<br> char* pc &#x3D; reinterpret_cast&lt;char*&gt;(ip);<br>  cout &lt;&lt; *pc&lt;&lt;endl; &#x2F;&#x2F;b<br> pc所指的真实对象依旧是一个int而非字符<br>  不可把pc当成普通的字符指针用</p>
+]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第四章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>4.8 位运算符</title>
+    <url>/2022/06/10/4.8%20%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p><strong>左移运算符</strong>（&lt;&lt;）</p>
+<p>在右侧插入0的二进制位</p>
+<p><strong>右移运算符</strong>（&gt;&gt;）</p>
+<p>依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位<br>若为有符号类型 则在左侧插入符号位的副本或者值为0的二进制位 具体如何选择根据环境而定</p>
+<p><strong>位求反运算符</strong>(~)<br>将运算对象逐位取反后生成一个新值  ~1&#x3D;0   ~0&#x3D;1</p>
+<p><strong>位与(&amp;)、位或(|)、位异或运算符（^）</strong></p>
+<p>&amp; 若两个操作对象的对应位置都是1 则运算结果为1；<br>| 若两个操作对象的对应位置至少有一个为1 则运算结果为1<br>^ 若两操作对象的对应位置只有一个为1则运算结果中该位为1</p>
+<p><strong>移位运算符(IO运算符&lt;&lt;)</strong><br>移位运算符满足左结合律</p>
+<p>cout&lt;&lt;”hi”&lt;&lt;”there”&lt;&lt;endl;<br>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((cout&lt;&lt;&quot;hi&quot;)&lt;&lt;&quot;there&quot;)&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第四章</tag>
       </tags>
   </entry>
 </search>

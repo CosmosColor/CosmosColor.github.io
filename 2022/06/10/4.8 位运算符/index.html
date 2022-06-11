@@ -5,12 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>指针和const - HI Ciallo����</title>
+    <title>4.8 位运算符 - HI Ciallo����</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="指向常量的指针(常量指针)代表 不能改变其指向内容的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是,"> 
+    <meta name="description" content="左移运算符（&amp;lt;&amp;lt;）
+在右侧插入0的二进制位
+右移运算符（&amp;gt;&amp;gt;）
+依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位若为有符号类型 则在左侧插入符号,"> 
     <meta name="author" content="Master Han"> 
     <link rel="alternative" href="atom.xml" title="HI Ciallo����" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +21,22 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="指针和const - HI Ciallo����"/>
-    <meta name="twitter:description" content="指向常量的指针(常量指针)代表 不能改变其指向内容的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是,"/>
+    <meta name="twitter:title" content="4.8 位运算符 - HI Ciallo����"/>
+    <meta name="twitter:description" content="左移运算符（&amp;lt;&amp;lt;）
+在右侧插入0的二进制位
+右移运算符（&amp;gt;&amp;gt;）
+依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位若为有符号类型 则在左侧插入符号,"/>
     
     
     
     
     <meta property="og:site_name" content="HI Ciallo����"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="指针和const - HI Ciallo����"/>
-    <meta property="og:description" content="指向常量的指针(常量指针)代表 不能改变其指向内容的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是,"/>
+    <meta property="og:title" content="4.8 位运算符 - HI Ciallo����"/>
+    <meta property="og:description" content="左移运算符（&amp;lt;&amp;lt;）
+在右侧插入0的二进制位
+右移运算符（&amp;gt;&amp;gt;）
+依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位若为有符号类型 则在左侧插入符号,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -42,7 +51,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">指针和const</h3>
+    <h3 class="subtitle">4.8 位运算符</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -57,22 +66,25 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">指针和const</h1>
+        <h1 class="title">4.8 位运算符</h1>
         <div class="stuff">
             <span>六月 10, 2022</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C-primer%E7%AC%AC%E4%BA%8C%E7%AB%A0/" rel="tag">C++ primer第二章</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C-primer%E7%AC%AC%E5%9B%9B%E7%AB%A0/" rel="tag">C++ primer第四章</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>指向常量的指针(常量指针)<br>代表 <strong>不能改变其指向内容</strong>的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是 <strong>底层const</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num_a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p_a = &amp;num_a; <span class="comment">//底层const</span></span><br><span class="line"><span class="comment">//*p_a = 2;  //错误，指向“常量”的指针不能改变所指的对象</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>指针常量</strong>：代表指针本身是常量，声明时必须初始化，之后<strong>它存储的地址值就不能再改变</strong>。声明时const必须放在指针符号<em>后面，即：</em>const 。声明常量指针就是<strong>顶层const</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num_a=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p_a=&amp;num_a;<span class="comment">//顶层const</span></span><br><span class="line">p_a=&amp;num_a;<span class="comment">//错误 指针常量不可更改所指向的地址</span></span><br></pre></td></tr></table></figure>
-
-<p>只需要判断const是在 * 的左边还是右边即可。左边则是修饰被指物，即被指物是常量，不可以修改它的值；右边则是修饰指针，即指针是常量，不可以修改它的指向；在左右两边，则被指物和指针都是常量，都不可以修改。</p>
+            <p><strong>左移运算符</strong>（&lt;&lt;）</p>
+<p>在右侧插入0的二进制位</p>
+<p><strong>右移运算符</strong>（&gt;&gt;）</p>
+<p>依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位<br>若为有符号类型 则在左侧插入符号位的副本或者值为0的二进制位 具体如何选择根据环境而定</p>
+<p><strong>位求反运算符</strong>(~)<br>将运算对象逐位取反后生成一个新值  ~1&#x3D;0   ~0&#x3D;1</p>
+<p><strong>位与(&amp;)、位或(|)、位异或运算符（^）</strong></p>
+<p>&amp; 若两个操作对象的对应位置都是1 则运算结果为1；<br>| 若两个操作对象的对应位置至少有一个为1 则运算结果为1<br>^ 若两操作对象的对应位置只有一个为1则运算结果中该位为1</p>
+<p><strong>移位运算符(IO运算符&lt;&lt;)</strong><br>移位运算符满足左结合律</p>
+<p>cout&lt;&lt;”hi”&lt;&lt;”there”&lt;&lt;endl;<br>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((cout&lt;&lt;&quot;hi&quot;)&lt;&lt;&quot;there&quot;)&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
