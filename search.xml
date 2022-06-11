@@ -3,7 +3,11 @@
   <entry>
     <title>testTitle</title>
     <url>/2022/06/10/testTitle/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>sdasjkaskdlalk</p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
