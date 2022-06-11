@@ -1,202 +1,32 @@
+extends includes/layout.pug
 
-<!DOCTYPE html>
-<html lang="en" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>6.7 函数指针 - HI Ciallo����</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="含义:指向函数的指针
-例:
- 12345678910111213bool (*pf)(const string&amp;amp;,const string &amp;amp;)//未初始化//pf是指向返回类型为b,"> 
-    <meta name="author" content="Master Han"> 
-    <link rel="alternative" href="atom.xml" title="HI Ciallo����" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="6.7 函数指针 - HI Ciallo����"/>
-    <meta name="twitter:description" content="含义:指向函数的指针
-例:
- 12345678910111213bool (*pf)(const string&amp;amp;,const string &amp;amp;)//未初始化//pf是指向返回类型为b,"/>
-    
-    
-    
-    
-    <meta property="og:site_name" content="HI Ciallo����"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="6.7 函数指针 - HI Ciallo����"/>
-    <meta property="og:description" content="含义:指向函数的指针
-例:
- 12345678910111213bool (*pf)(const string&amp;amp;,const string &amp;amp;)//未初始化//pf是指向返回类型为b,"/>
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-    <script>window.searchDbPath = "/search.xml";</script>
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">HI Ciallo����</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">6.7 函数指针</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">6.7 函数指针</h1>
-        <div class="stuff">
-            <span>六月 10, 2022</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C-primer%E7%AC%AC%E5%85%AD%E7%AB%A0/" rel="tag">C++ primer第六章</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <p>含义:指向函数的指针</p>
-<p>例:</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span> (*pf)(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;)<span class="comment">//未初始化</span></span><br><span class="line"><span class="comment">//pf是指向返回类型为bool类型的指针 pf两端的()不可舍弃</span></span><br><span class="line"><span class="comment">//否则pf就是一个普通的函数名</span></span><br><span class="line"><span class="comment">//为pf初始化</span></span><br><span class="line"> <span class="function"><span class="type">bool</span> <span class="title">lencompare</span> <span class="params">(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;)</span></span></span><br><span class="line"><span class="function"> pf</span>=lencompare;</span><br><span class="line"> <span class="comment">//或</span></span><br><span class="line"> pf=&amp;lencompare;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//则可调用pf</span></span><br><span class="line">  <span class="type">bool</span> b=<span class="built_in">pf</span>(<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">  <span class="comment">//或</span></span><br><span class="line">  <span class="type">bool</span> b=(*pf)(<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p> 注:<br> 指向不同函数类型的指针间不存在转换规则<br> 形参类型不匹配的函数也不可被函数指针指向<br> 必须函数和指针的类型精确匹配</p>
-<p> <strong>重载函数的指针</strong></p>
-   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   <span class="function"><span class="type">void</span> <span class="title">ff</span><span class="params">(<span class="type">int</span> *)</span></span></span><br><span class="line"><span class="function">   <span class="type">void</span> <span class="title">ff</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span>)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//函数指针必须精确声明其形参参数且其返回类型同指向函数一致</span></span></span><br><span class="line"><span class="function"><span class="title">void</span> <span class="params">(*pf1)</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span>)</span></span>=ff<span class="comment">//正确 pf1指向ff(unsigned int)</span></span><br><span class="line"><span class="built_in">void</span> (*pf2)(<span class="type">int</span>) =ff<span class="comment">//错误:没有对应形参的ff</span></span><br><span class="line"><span class="built_in">double</span> (*pf3)(<span class="type">int</span>*)=ff<span class="comment">//错误:ff和pf3的返回类型不匹配 </span></span><br></pre></td></tr></table></figure>
-
-<p><strong>函数指针形参</strong></p>
-<p>含义: 函数不可做形参 但是函数指针可以</p>
-<p>例:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="type">void</span> <span class="title">useBigger</span><span class="params">(<span class="type">const</span> string &amp;s1,<span class="type">const</span> string&amp; s2,<span class="type">bool</span> pf(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;))</span></span>;</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">useBigger</span><span class="params">(<span class="type">const</span> string &amp;s1,<span class="type">const</span> string&amp; s2,<span class="type">bool</span> (*pf)(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;))</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用方法</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">useBigger</span>(s1,s2,function);<span class="comment">//function指与形参相匹配的函数</span></span><br></pre></td></tr></table></figure>
-<p> 这两个函数等价 第三个参数为指向函数的指针</p>
-<p>以上两种声明第三个参数的写法过于繁琐<br>因此可用typedef或using定义自己所需的函数指针类型</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Funcp为返回类型为bool形参为两个常量字符串引用的函数指针</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">bool</span> <span class="params">(*Funcp)</span><span class="params">(<span class="type">const</span> string &amp;,<span class="type">const</span> string&amp;)</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//普通函数</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">ishigh</span><span class="params">(cconst string &amp;s1,<span class="type">const</span> string &amp;s2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> s1 &gt; s2;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">  Funcp f1=ishigh;<span class="comment">//f1指向ishigh</span></span><br><span class="line">  <span class="comment">//除了上述方法还可用decltype自动推断出函数类型 并起别名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Funcp2=<span class="keyword">decltype</span>(ishigh)*;</span><br><span class="line"></span><br><span class="line">Funcp2 f2=ishigh;<span class="comment">//f2指向ishigh</span></span><br></pre></td></tr></table></figure>
-
-<p>返回函数的指针</p>
-<p>   含义:函数的返回值不可为函数 但是可为函数的指针</p>
-<p>   要想返回一个函数的指针,最简单的方式就是使用类型别名</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> f=<span class="built_in">int</span>(<span class="type">int</span> *,<span class="type">int</span>);<span class="comment">//f是函数类型不是指针</span></span><br><span class="line"><span class="keyword">using</span> pf=<span class="built_in">int</span>(*) (<span class="type">int</span>*,<span class="type">int</span>);<span class="comment">//pf是指针类型</span></span><br><span class="line"></span><br><span class="line"><span class="function">pf <span class="title">f1</span><span class="params">(<span class="type">int</span>)</span></span>; <span class="comment">//正确:返回类型为pf,是指向函数的指针,f1返回指向函数的指针</span></span><br><span class="line"><span class="function">f <span class="title">f1</span><span class="params">(<span class="type">int</span>)</span></span>;<span class="comment">//错误:返回类型为函数类型,函数不可返回函数</span></span><br><span class="line"><span class="function">f *<span class="title">f1</span><span class="params">(<span class="type">int</span>)</span></span>;<span class="comment">//正确:返回类型为函数指针 显示指定</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                        
-                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                </ul>
-            
-        </div>
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
         
-    <div id="gitalk-container" class="comment link"
-		data-enable="false"
-        data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
-    >查看评论</div>
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
 
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
 
-    </div>
-    
-</div>
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
 
-
-    </div>
-</div>
-</body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</html>
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+      

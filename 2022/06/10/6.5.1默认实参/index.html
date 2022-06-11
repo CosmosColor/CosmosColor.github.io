@@ -1,196 +1,32 @@
+extends includes/layout.pug
 
-<!DOCTYPE html>
-<html lang="en" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>6.5.1默认实参 - HI Ciallo����</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="默认实参
-  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用  若想使用默认实参，只要在调用函数的时候省略该实参即可
-  在声明函数时若给一个参数设置了默认实参 则其后的参数,"> 
-    <meta name="author" content="Master Han"> 
-    <link rel="alternative" href="atom.xml" title="HI Ciallo����" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="6.5.1默认实参 - HI Ciallo����"/>
-    <meta name="twitter:description" content="默认实参
-  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用  若想使用默认实参，只要在调用函数的时候省略该实参即可
-  在声明函数时若给一个参数设置了默认实参 则其后的参数,"/>
-    
-    
-    
-    
-    <meta property="og:site_name" content="HI Ciallo����"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="6.5.1默认实参 - HI Ciallo����"/>
-    <meta property="og:description" content="默认实参
-  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用  若想使用默认实参，只要在调用函数的时候省略该实参即可
-  在声明函数时若给一个参数设置了默认实参 则其后的参数,"/>
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-    <script>window.searchDbPath = "/search.xml";</script>
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">HI Ciallo����</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">6.5.1默认实参</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">6.5.1默认实参</h1>
-        <div class="stuff">
-            <span>六月 10, 2022</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C-primer%E7%AC%AC%E5%85%AD%E7%AB%A0/" rel="tag">C++ primer第六章</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <p><strong>默认实参</strong></p>
-<p>  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用<br>  若想使用默认实参，只要在调用函数的时候省略该实参即可</p>
-<p>  在声明函数时若给一个参数设置了默认实参 则其后的参数都必须设置实参</p>
-<p><strong>6.5.2 内联函数和constexpr函数</strong></p>
-<p>内联函数(inline)可避免函数调用的开销<br>如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
-<p>对内联函数进行任何修改，都需要重新编译函数的所有客户端，因为编译器需要重新更换一次所有的代码，否则将会继续使用旧的函数。</p>
-<p>在类定义中的定义的函数都是内联函数，即使没有使用 <strong>inline</strong> 说明符。<br>若在类中声明 类外实现且没有加inline函数则不是内联函数</p>
-<p>只有当函数只有 10 行甚至更少时才将其定义为内联函数.<br>含义和形式如下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原函数</span></span><br><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;<span class="built_in">shorterString</span>(s1,s2)&lt;&lt;endl;</span><br><span class="line"><span class="comment">//内联函数 在原函数前加上关键字inline</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">const</span> string&amp;<span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//则调用会编译成以下形式</span></span><br><span class="line">cout&lt;&lt;(s1.<span class="built_in">size</span>()&lt;s2.<span class="built_in">size</span>()?s1:s2)&lt;&lt;endl;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>一般来说 内联机制用于优化规模较小 流程直接 频繁调用的函数(内联说明只是向编译器发出一个请求，编译器可以选择忽略)</p>
-<p><strong>constexpr函数</strong><br>含义: 是指能用于常量表达式的函数。定义constexpr函数的方法与其他函数类似，但是有以下几项<br>约定:<br>  函数的返回类型及所有的形参类型均是字面值且函数体中有且只有一条return语句</p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//constexpr函数 </span></span><br><span class="line"> <span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">new_sz</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">42</span>;&#125;</span><br><span class="line"> <span class="keyword">constexpr</span> <span class="type">int</span> foo=<span class="built_in">new_sz</span>();</span><br></pre></td></tr></table></figure>
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                        
-                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                </ul>
-            
-        </div>
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
         
-    <div id="gitalk-container" class="comment link"
-		data-enable="false"
-        data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
-    >查看评论</div>
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
 
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
 
-    </div>
-    
-</div>
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
 
-
-    </div>
-</div>
-</body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</html>
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+      

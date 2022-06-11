@@ -1,200 +1,32 @@
+extends includes/layout.pug
 
-<!DOCTYPE html>
-<html lang="en" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>4.11.3 显式转换 - HI Ciallo����</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="命名的强制类型转换
-形式： cast-name(expression)type: 要转换的类型 （若type是引用类型 则返回值为左值）expression: 要转换的值 cast-name: st,"> 
-    <meta name="author" content="Master Han"> 
-    <link rel="alternative" href="atom.xml" title="HI Ciallo����" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="4.11.3 显式转换 - HI Ciallo����"/>
-    <meta name="twitter:description" content="命名的强制类型转换
-形式： cast-name(expression)type: 要转换的类型 （若type是引用类型 则返回值为左值）expression: 要转换的值 cast-name: st,"/>
-    
-    
-    
-    
-    <meta property="og:site_name" content="HI Ciallo����"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="4.11.3 显式转换 - HI Ciallo����"/>
-    <meta property="og:description" content="命名的强制类型转换
-形式： cast-name(expression)type: 要转换的类型 （若type是引用类型 则返回值为左值）expression: 要转换的值 cast-name: st,"/>
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-    <script>window.searchDbPath = "/search.xml";</script>
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">HI Ciallo����</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">4.11.3 显式转换</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">4.11.3 显式转换</h1>
-        <div class="stuff">
-            <span>六月 10, 2022</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C-primer%E7%AC%AC%E5%9B%9B%E7%AB%A0/" rel="tag">C++ primer第四章</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <p><strong>命名的强制类型转换</strong></p>
-<p>形式： cast-name<type>(expression)<br>type: 要转换的类型 （若type是引用类型 则返回值为左值）<br>expression: 要转换的值<br> cast-name: static_cast、 dynamic_cast、const_cast 和reinterpret_cast其中一种</p>
-<p>dynamic_cast:支持执行时类型识别(&lt;待补充&gt;)</p>
-<p>static_cast:<br>任何具有明确定义的类型转换，只要不包含底层const,都可以使用<br>例:<br>    &#x2F;&#x2F;进行强制类型转换以便执行浮点数除法<br>   double slope&#x3D;static_cast<double>(j)&#x2F;i;<br>   static_cast经常用于将一个较大的算术类型赋值给较小的类型，<br>   使用时编译器不会再发出由大的算术类型转为较小的算术类型所造成的精度损失警告</p>
-<pre><code>static_cast对于编译器无法自动执行的类型转换也非常有用
-
- void *p=&amp;d; //注:此处d的类型应为double
- double *dp=static_cast&lt;double*&gt; (p);
-</code></pre>
-<p>const_cast：</p>
-<p>只能改变运算对象的底层const<br>例:<br>     const char *pc;<br>     char *p&#x3D;const_cast&lt;char*&gt;(pc);</p>
-<pre><code>const int n = 12;
-const int* p = &amp;n;
-int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_cast转换成*k 底层const发生改变
-*k = 12;//正确
-</code></pre>
-<p>reinterpret_cast</p>
-<p>int *ip;<br>char *pc&#x3D;reinterpret_cast&lt;char*&gt;(ip);</p>
-<p> int n &#x3D; 98;<br> int* ip&#x3D;&amp;n;<br> char* pc &#x3D; reinterpret_cast&lt;char*&gt;(ip);<br>  cout &lt;&lt; *pc&lt;&lt;endl; &#x2F;&#x2F;b<br> pc所指的真实对象依旧是一个int而非字符<br>  不可把pc当成普通的字符指针用</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                        
-                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
-                        
-                    
-                </ul>
-            
-        </div>
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
         
-    <div id="gitalk-container" class="comment link"
-		data-enable="false"
-        data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
-    >查看评论</div>
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
 
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
 
-    </div>
-    
-</div>
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
 
-
-    </div>
-</div>
-</body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</html>
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+      

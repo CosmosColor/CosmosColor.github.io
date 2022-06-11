@@ -52,20 +52,6 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       </tags>
   </entry>
   <entry>
-    <title>6.4函数重载</title>
-    <url>/2022/06/10/6.4%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/</url>
-    <content><![CDATA[<p><strong>const_cast和重载</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string&amp; <span class="title">shorterString</span><span class="params">(string&amp; s1, string&amp; s2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//下条语句将s1和s2显示转换为常量引用         </span></span><br><span class="line">	<span class="keyword">auto</span>&amp; r = </span><br><span class="line">    <span class="built_in">shorterString</span>(<span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s1), <span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s2));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;string&amp;&gt;(r);<span class="comment">//将结果r转为非常量引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++ primer</category>
-      </categories>
-      <tags>
-        <tag>C++ primer第六章</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>6.2.1传值参数</title>
     <url>/2022/06/10/6.2.1%E4%BC%A0%E5%80%BC%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<p><strong>指针形参</strong></p>
@@ -84,6 +70,20 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
 <p>   <strong>多维数组传值</strong></p>
 <p>   多维数组即为数组的数组<br>   当将多维数组传递给函数时,同一维数组一样 真正传递的是指向数组首元素的指针</p>
    <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//matrix 指向数组的首元素 该数组的元素是由10个整数构成的数组</span></span><br><span class="line"> <span class="function"><span class="type">void</span> <span class="title">print</span> <span class="params">(<span class="type">int</span> (*matrix)[<span class="number">10</span>])</span></span></span><br><span class="line"><span class="function"><span class="comment">//上述语句将matrix声明成指向含有10个整数的数组的指针 </span></span></span><br><span class="line"><span class="function"><span class="comment">//等价于</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span> <span class="params">(<span class="type">int</span> matrix[][<span class="number">10</span>])</span></span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第六章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6.4函数重载</title>
+    <url>/2022/06/10/6.4%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/</url>
+    <content><![CDATA[<p><strong>const_cast和重载</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string&amp; <span class="title">shorterString</span><span class="params">(string&amp; s1, string&amp; s2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//下条语句将s1和s2显示转换为常量引用         </span></span><br><span class="line">	<span class="keyword">auto</span>&amp; r = </span><br><span class="line">    <span class="built_in">shorterString</span>(<span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s1), <span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s2));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;string&amp;&gt;(r);<span class="comment">//将结果r转为非常量引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -117,42 +117,6 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/10/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>指针和const</title>
-    <url>/2022/06/10/%E6%8C%87%E9%92%88%E5%92%8Cconst/</url>
-    <content><![CDATA[<p>指向常量的指针(常量指针)<br>代表 <strong>不能改变其指向内容</strong>的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是 <strong>底层const</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p_a = &amp;num_a; <span class="comment">//底层const</span></span><br><span class="line"><span class="comment">//*p_a = 2;  //错误，指向“常量”的指针不能改变所指的对象</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>指针常量</strong>：代表指针本身是常量，声明时必须初始化，之后<strong>它存储的地址值就不能再改变</strong>。声明时const必须放在指针符号<em>后面，即：</em>const 。声明常量指针就是<strong>顶层const</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p_a=&amp;num_a;<span class="comment">//顶层const</span></span><br><span class="line">p_a=&amp;num_a;<span class="comment">//错误 指针常量不可更改所指向的地址</span></span><br></pre></td></tr></table></figure>
-
-<p>只需要判断const是在 * 的左边还是右边即可。左边则是修饰被指物，即被指物是常量，不可以修改它的值；右边则是修饰指针，即指针是常量，不可以修改它的指向；在左右两边，则被指物和指针都是常量，都不可以修改。</p>
-]]></content>
-      <categories>
-        <category>C++ primer</category>
-      </categories>
-      <tags>
-        <tag>C++ primer第二章</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>6.7 函数指针</title>
     <url>/2022/06/10/6.7%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>含义:指向函数的指针</p>
@@ -180,5 +144,41 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       <tags>
         <tag>C++ primer第六章</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>指针和const</title>
+    <url>/2022/06/10/%E6%8C%87%E9%92%88%E5%92%8Cconst/</url>
+    <content><![CDATA[<p>指向常量的指针(常量指针)<br>代表 <strong>不能改变其指向内容</strong>的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是 <strong>底层const</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p_a = &amp;num_a; <span class="comment">//底层const</span></span><br><span class="line"><span class="comment">//*p_a = 2;  //错误，指向“常量”的指针不能改变所指的对象</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>指针常量</strong>：代表指针本身是常量，声明时必须初始化，之后<strong>它存储的地址值就不能再改变</strong>。声明时const必须放在指针符号<em>后面，即：</em>const 。声明常量指针就是<strong>顶层const</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p_a=&amp;num_a;<span class="comment">//顶层const</span></span><br><span class="line">p_a=&amp;num_a;<span class="comment">//错误 指针常量不可更改所指向的地址</span></span><br></pre></td></tr></table></figure>
+
+<p>只需要判断const是在 * 的左边还是右边即可。左边则是修饰被指物，即被指物是常量，不可以修改它的值；右边则是修饰指针，即指针是常量，不可以修改它的指向；在左右两边，则被指物和指针都是常量，都不可以修改。</p>
+]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第二章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/10/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
