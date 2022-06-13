@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>4.8 位运算符</title>
-    <url>/2022/06/10/4.8%20%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p><strong>左移运算符</strong>（&lt;&lt;）</p>
-<p>在右侧插入0的二进制位</p>
-<p><strong>右移运算符</strong>（&gt;&gt;）</p>
-<p>依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位<br>若为有符号类型 则在左侧插入符号位的副本或者值为0的二进制位 具体如何选择根据环境而定</p>
-<p><strong>位求反运算符</strong>(~)<br>将运算对象逐位取反后生成一个新值  ~1&#x3D;0   ~0&#x3D;1</p>
-<p><strong>位与(&amp;)、位或(|)、位异或运算符（^）</strong></p>
-<p>&amp; 若两个操作对象的对应位置都是1 则运算结果为1；<br>| 若两个操作对象的对应位置至少有一个为1 则运算结果为1<br>^ 若两操作对象的对应位置只有一个为1则运算结果中该位为1</p>
-<p><strong>移位运算符(IO运算符&lt;&lt;)</strong><br>移位运算符满足左结合律</p>
-<p>cout&lt;&lt;”hi”&lt;&lt;”there”&lt;&lt;endl;<br>等同于</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((cout&lt;&lt;&quot;hi&quot;)&lt;&lt;&quot;there&quot;)&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+    <title>Hello World</title>
+    <url>/2022/06/10/stl%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>C++ primer</category>
-      </categories>
-      <tags>
-        <tag>C++ primer第四章</tag>
-      </tags>
   </entry>
   <entry>
     <title>4.11.3 显式转换</title>
-    <url>/2022/06/10/4.11.3%20%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2/</url>
+    <url>/2022/06/10/C++%20primer/4.11.3%20%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<p><strong>命名的强制类型转换</strong></p>
 <p>形式： cast-name<type>(expression)<br>type: 要转换的类型 （若type是引用类型 则返回值为左值）<br>expression: 要转换的值<br> cast-name: static_cast、 dynamic_cast、const_cast 和reinterpret_cast其中一种</p>
 <p>dynamic_cast:支持执行时类型识别(&lt;待补充&gt;)</p>
@@ -53,7 +50,7 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
   </entry>
   <entry>
     <title>6.2.1传值参数</title>
-    <url>/2022/06/10/6.2.1%E4%BC%A0%E5%80%BC%E5%8F%82%E6%95%B0/</url>
+    <url>/2022/06/10/C++%20primer/6.2.1%E4%BC%A0%E5%80%BC%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<p><strong>指针形参</strong></p>
 <p>指针的行为和其他非引用类型一样，当执行指针拷贝操作时拷贝的是指针的值<br>两个指针是不同的指针 但是所指向的内存区域是相同的,因此可通过修改形参所指的值<br>来对实参进行更改</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap1</span><span class="params">(<span class="type">int</span> *a,<span class="type">int</span> *b)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap2</span><span class="params">(<span class="type">int</span> *a,<span class="type">int</span> *b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span>* tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//此种写法可交换地址和值 参数相当于指针的引用</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">supperSwap</span><span class="params">(<span class="type">int</span> *&amp;p1,<span class="type">int</span> (*&amp;p2))</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span>* tmp = p1;</span><br><span class="line">	p1 = p2;</span><br><span class="line">	p2 = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n1 = <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> n2 = <span class="number">20</span>;</span><br><span class="line">    <span class="type">int</span>* p1 = &amp;n1;</span><br><span class="line">    <span class="type">int</span>* p2 = &amp;n2;</span><br><span class="line">    <span class="comment">//交换p1 p2所指对象的值 所指地址未变动</span></span><br><span class="line">    <span class="comment">//swap1(p1,p2);</span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; p1 &lt;&lt;&quot;   &quot; &lt;&lt; p2 &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; p1 &lt;&lt;&quot;  &quot; &lt;&lt; *p1 &lt;&lt; &quot;   &quot; &lt;&lt; p2 &lt;&lt; &quot;  &quot; &lt;&lt; *p2 &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//地址和值都没发生变化 但是函数中复制 p1和p2的a和b 的值和地址发生了变化</span></span><br><span class="line">    <span class="built_in">swap2</span>(p1, p2);</span><br><span class="line">    cout &lt;&lt; p1 &lt;&lt; <span class="string">&quot;   &quot;</span> &lt;&lt; p2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; p1 &lt;&lt; <span class="string">&quot;  &quot;</span> &lt;&lt; *p1 &lt;&lt; <span class="string">&quot;   &quot;</span> &lt;&lt; p2 &lt;&lt; <span class="string">&quot;  &quot;</span> &lt;&lt; *p2 &lt;&lt; endl;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
@@ -80,8 +77,29 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       </tags>
   </entry>
   <entry>
+    <title>4.8 位运算符</title>
+    <url>/2022/06/10/C++%20primer/4.8%20%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p><strong>左移运算符</strong>（&lt;&lt;）</p>
+<p>在右侧插入0的二进制位</p>
+<p><strong>右移运算符</strong>（&gt;&gt;）</p>
+<p>依赖于左侧运算对象的类型 若此运算对象为无符号类型，在左侧插入值为0的二进制位<br>若为有符号类型 则在左侧插入符号位的副本或者值为0的二进制位 具体如何选择根据环境而定</p>
+<p><strong>位求反运算符</strong>(~)<br>将运算对象逐位取反后生成一个新值  ~1&#x3D;0   ~0&#x3D;1</p>
+<p><strong>位与(&amp;)、位或(|)、位异或运算符（^）</strong></p>
+<p>&amp; 若两个操作对象的对应位置都是1 则运算结果为1；<br>| 若两个操作对象的对应位置至少有一个为1 则运算结果为1<br>^ 若两操作对象的对应位置只有一个为1则运算结果中该位为1</p>
+<p><strong>移位运算符(IO运算符&lt;&lt;)</strong><br>移位运算符满足左结合律</p>
+<p>cout&lt;&lt;”hi”&lt;&lt;”there”&lt;&lt;endl;<br>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((cout&lt;&lt;&quot;hi&quot;)&lt;&lt;&quot;there&quot;)&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第四章</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>6.4函数重载</title>
-    <url>/2022/06/10/6.4%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/</url>
+    <url>/2022/06/10/C++%20primer/6.4%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/</url>
     <content><![CDATA[<p><strong>const_cast和重载</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">string&amp; <span class="title">shorterString</span><span class="params">(string&amp; s1, string&amp; s2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//下条语句将s1和s2显示转换为常量引用         </span></span><br><span class="line">	<span class="keyword">auto</span>&amp; r = </span><br><span class="line">    <span class="built_in">shorterString</span>(<span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s1), <span class="built_in">const_cast</span>&lt;<span class="type">const</span> string&amp;&gt;(s2));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;string&amp;&gt;(r);<span class="comment">//将结果r转为非常量引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -94,8 +112,31 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       </tags>
   </entry>
   <entry>
+    <title>6.5.1默认实参</title>
+    <url>/2022/06/10/C++%20primer/6.5.1%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82/</url>
+    <content><![CDATA[<p><strong>默认实参</strong></p>
+<p>  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用<br>  若想使用默认实参，只要在调用函数的时候省略该实参即可</p>
+<p>  在声明函数时若给一个参数设置了默认实参 则其后的参数都必须设置实参</p>
+<p><strong>6.5.2 内联函数和constexpr函数</strong></p>
+<p>内联函数(inline)可避免函数调用的开销<br>如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
+<p>对内联函数进行任何修改，都需要重新编译函数的所有客户端，因为编译器需要重新更换一次所有的代码，否则将会继续使用旧的函数。</p>
+<p>在类定义中的定义的函数都是内联函数，即使没有使用 <strong>inline</strong> 说明符。<br>若在类中声明 类外实现且没有加inline函数则不是内联函数</p>
+<p>只有当函数只有 10 行甚至更少时才将其定义为内联函数.<br>含义和形式如下:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//原函数</span></span><br><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;<span class="built_in">shorterString</span>(s1,s2)&lt;&lt;endl;</span><br><span class="line"><span class="comment">//内联函数 在原函数前加上关键字inline</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">const</span> string&amp;<span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//则调用会编译成以下形式</span></span><br><span class="line">cout&lt;&lt;(s1.<span class="built_in">size</span>()&lt;s2.<span class="built_in">size</span>()?s1:s2)&lt;&lt;endl;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>一般来说 内联机制用于优化规模较小 流程直接 频繁调用的函数(内联说明只是向编译器发出一个请求，编译器可以选择忽略)</p>
+<p><strong>constexpr函数</strong><br>含义: 是指能用于常量表达式的函数。定义constexpr函数的方法与其他函数类似，但是有以下几项<br>约定:<br>  函数的返回类型及所有的形参类型均是字面值且函数体中有且只有一条return语句</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//constexpr函数 </span></span><br><span class="line"> <span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">new_sz</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">42</span>;&#125;</span><br><span class="line"> <span class="keyword">constexpr</span> <span class="type">int</span> foo=<span class="built_in">new_sz</span>();</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++ primer</category>
+      </categories>
+      <tags>
+        <tag>C++ primer第六章</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>6.7 函数指针</title>
-    <url>/2022/06/10/6.7%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/</url>
+    <url>/2022/06/10/C++%20primer/6.7%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>含义:指向函数的指针</p>
 <p>例:</p>
  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">bool</span> (*pf)(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;)<span class="comment">//未初始化</span></span><br><span class="line"><span class="comment">//pf是指向返回类型为bool类型的指针 pf两端的()不可舍弃</span></span><br><span class="line"><span class="comment">//否则pf就是一个普通的函数名</span></span><br><span class="line"><span class="comment">//为pf初始化</span></span><br><span class="line"> <span class="function"><span class="type">bool</span> <span class="title">lencompare</span> <span class="params">(<span class="type">const</span> string&amp;,<span class="type">const</span> string &amp;)</span></span></span><br><span class="line"><span class="function"> pf</span>=lencompare;</span><br><span class="line"> <span class="comment">//或</span></span><br><span class="line"> pf=&amp;lencompare;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//则可调用pf</span></span><br><span class="line">  <span class="type">bool</span> b=<span class="built_in">pf</span>(<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">  <span class="comment">//或</span></span><br><span class="line">  <span class="type">bool</span> b=(*pf)(<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;bbb&quot;</span>);</span><br></pre></td></tr></table></figure>
@@ -123,31 +164,8 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       </tags>
   </entry>
   <entry>
-    <title>6.5.1默认实参</title>
-    <url>/2022/06/10/6.5.1%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82/</url>
-    <content><![CDATA[<p><strong>默认实参</strong></p>
-<p>  含义: 某些函数在调用时默认设置的一个实参,调用该函数时可省略也可使用<br>  若想使用默认实参，只要在调用函数的时候省略该实参即可</p>
-<p>  在声明函数时若给一个参数设置了默认实参 则其后的参数都必须设置实参</p>
-<p><strong>6.5.2 内联函数和constexpr函数</strong></p>
-<p>内联函数(inline)可避免函数调用的开销<br>如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
-<p>对内联函数进行任何修改，都需要重新编译函数的所有客户端，因为编译器需要重新更换一次所有的代码，否则将会继续使用旧的函数。</p>
-<p>在类定义中的定义的函数都是内联函数，即使没有使用 <strong>inline</strong> 说明符。<br>若在类中声明 类外实现且没有加inline函数则不是内联函数</p>
-<p>只有当函数只有 10 行甚至更少时才将其定义为内联函数.<br>含义和形式如下:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//原函数</span></span><br><span class="line"><span class="function"><span class="type">const</span> string&amp; <span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;<span class="built_in">shorterString</span>(s1,s2)&lt;&lt;endl;</span><br><span class="line"><span class="comment">//内联函数 在原函数前加上关键字inline</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">const</span> string&amp;<span class="title">shorterString</span><span class="params">(<span class="type">const</span> string&amp; s1, <span class="type">const</span> string&amp; s2)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	<span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt;= s2.<span class="built_in">size</span>() ? s1 : s2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//则调用会编译成以下形式</span></span><br><span class="line">cout&lt;&lt;(s1.<span class="built_in">size</span>()&lt;s2.<span class="built_in">size</span>()?s1:s2)&lt;&lt;endl;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>一般来说 内联机制用于优化规模较小 流程直接 频繁调用的函数(内联说明只是向编译器发出一个请求，编译器可以选择忽略)</p>
-<p><strong>constexpr函数</strong><br>含义: 是指能用于常量表达式的函数。定义constexpr函数的方法与其他函数类似，但是有以下几项<br>约定:<br>  函数的返回类型及所有的形参类型均是字面值且函数体中有且只有一条return语句</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//constexpr函数 </span></span><br><span class="line"> <span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">new_sz</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">42</span>;&#125;</span><br><span class="line"> <span class="keyword">constexpr</span> <span class="type">int</span> foo=<span class="built_in">new_sz</span>();</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C++ primer</category>
-      </categories>
-      <tags>
-        <tag>C++ primer第六章</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指针和const</title>
-    <url>/2022/06/10/%E6%8C%87%E9%92%88%E5%92%8Cconst/</url>
+    <url>/2022/06/10/C++%20primer/%E6%8C%87%E9%92%88%E5%92%8Cconst/</url>
     <content><![CDATA[<p>指向常量的指针(常量指针)<br>代表 <strong>不能改变其指向内容</strong>的指针。声明时const可以放在类型名前后都可，拿int类型来说，声明时：const int和int const 是等价的。声明指向常量的指针也就是 <strong>底层const</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num_a = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p_a = &amp;num_a; <span class="comment">//底层const</span></span><br><span class="line"><span class="comment">//*p_a = 2;  //错误，指向“常量”的指针不能改变所指的对象</span></span><br></pre></td></tr></table></figure>
 
@@ -162,23 +180,5 @@ int *k = const_cast&lt;int*&gt;(p);//n 为常量不可修改 但是通过const_c
       <tags>
         <tag>C++ primer第二章</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/10/stl%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
